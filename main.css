@@ -6,11 +6,13 @@ html,body{
     font-family:'Open sans', sans-serif;
 }
 h1{
-  font-size: 32px;  
+  font-size: 26px;  
+  font-weight: 600;
+
 }
 h2{
     font-weight: 600;
-  font-size: 16px;
+  font-size: 20px;
 }
 hr{
     border: 1px solid #f0932b;
@@ -25,38 +27,16 @@ a{
     text-decoration: none;
 }
 header{
-    display: grid;
-    grid-template-columns: 1.5fr auto 2fr;
-    align-items: center;
     padding: 20px;
 }
 .logo-container{
+    margin: 0 auto;
     height: auto;
     width: 150px;
 }
 .logo-container img{
     height: auto;
     width: 100%;
-}
-.header ul{
-    text-align: center;
-}
-.header ul li{
-    padding: 0 2px;
-    display: inline-block;
-}
-.header ul li a{
-    padding: 5px 15px;
-}
-.header ul:nth-child(3){
-    justify-self: end;
-}
-.header ul:nth-child(3) li:nth-child(1){
-    border-right: 1px solid #808080;
-}
-.signup{
-   border: 2px solid  #f0932b;
-   border-radius: 50px;
 }
 
 main{
@@ -70,44 +50,62 @@ section{
     grid-template-areas: 
     "title title title"
     "prev content next";
-    grid-template-rows: 60px;
+    grid-template-rows: 90px;
 }
 .title{
     grid-area: title;
     padding: 20px;
     font-weight: 600;
 }
-.prev{
+.previous{
+    background: #f0932b;
+    border-radius: 4px;
+    height: 22px;
+    padding:0 1em 0 1.5em;
     grid-area: prev;
+    text-transform: capitalize;
     justify-self: center;
+    position: relative;
 }
+.previous:before{
+    content: '';
+    position: absolute;
+    top:6px;
+    left: 15px;
+    border-top: 5px solid transparent;
+    border-right: 5px solid #000;
+    border-bottom: 5px solid transparent;
+}
+
 .next{
+    background: #f0932b;
+    border-radius: 4px;
+    height: 22px;
+    padding:0 1.5em 0 1em;
     grid-area: next;
     justify-self: center;
+    position: relative;
+}
+.next::after{
+    content: '';
+    position: absolute;
+    top:6px;
+    right: 15px;
+    border-top: 5px solid transparent;
+    border-left: 5px solid #000;
+    border-bottom: 5px solid transparent;
 }
 .content{
+    padding-top: 60px;
     grid-area: content;
 }
 footer{
     border-top: 2px solid #f0932b;
     background: #404041;
-    display: grid;
-    grid-template-columns: auto 1fr;
     padding: 20px;
-}
-footer ul{
-    text-align: center;
-}
-footer ul li{
-    display: inline;
-    padding: 0 15px;
-}
-footer ul li a{
-    color: #fff;
 }
 footer div{
     color: #fff;
-    justify-self: end;
 }
 .active{
     color: #f0932b;
@@ -121,19 +119,6 @@ footer div{
 .img-container img{
     height: auto;
     width: 100%;
-}
-.video-container{
-    position: relative;
-    overflow: hidden;
-    padding-top: 56.25%;
-}
-.video-container iframe{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
 }
 .text-container p{
     padding-bottom: 1em;
