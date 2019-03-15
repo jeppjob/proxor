@@ -22,9 +22,31 @@ ul{
     padding: 0;
     list-style-type: none;
 }
+li{
+    position: relative;
+}
+li:before{
+    content: '';
+    position: absolute;
+    top:15px;
+    left: -2px;
+    border-top: 5px solid transparent;
+    border-left: 5px solid #ffc380;
+    border-bottom: 5px solid transparent;
+    
+}
+.accordion.active li::before{
+    border-left: 5px solid #f0932b;
+}
 a{
     color: #000;
     text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+video{
+    width: 100%;
 }
 header{
     padding: 20px;
@@ -51,6 +73,9 @@ section{
     "title title title"
     "prev content next";
     grid-template-rows: 90px;
+}
+aside{
+    padding-left: 10px;
 }
 .title{
     grid-area: title;
@@ -100,11 +125,23 @@ section{
     grid-area: content;
 }
 footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     border-top: 2px solid #f0932b;
     background: #404041;
     padding: 20px;
 }
-footer div{
+footer div:nth-child(1){
+    width: 100px;
+    padding: .5em;
+    margin: unset;
+    align-self: center;
+    justify-self: start;
+}
+
+footer div:nth-child(2){
+    align-self: center;
+    justify-self: end;
     color: #fff;
 }
 .active{
@@ -131,6 +168,10 @@ footer div{
     padding: .5em;
 }
 
+
+.closenav + ul{
+   display: none;
+}
 aside{
     padding-top: 36px;
     border-left: 1px solid #c0c0c0;
@@ -152,7 +193,7 @@ aside{
         grid-template-columns: 1fr;
     }
     section{
-        padding: 10px;
+        padding: 1em;
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
         "title title"
@@ -165,8 +206,9 @@ aside{
     footer{
         grid-template-columns: 1fr;
     }
-    footer div{
+    footer div:nth-child(n){
         padding-top: 10px;
+        align-self: center;
         justify-self: center;
     }
 } 
