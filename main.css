@@ -71,7 +71,8 @@ section{
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-areas: 
     "title title title"
-    "prev content next";
+    "prev content next"
+    "contprev content contnext";
     grid-template-rows: 90px;
 }
 aside{
@@ -92,6 +93,28 @@ aside{
     justify-self: center;
     position: relative;
 }
+.cont-previous{
+    grid-area: contprev;
+    background: #f0932b;
+    border-radius: 4px;
+    height: 22px;
+    padding:0 1em 0 1.5em;
+    text-transform: capitalize;
+    justify-self: center;
+    align-self: end;
+    position: relative; 
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+.cont-previous:before{
+    content: '';
+    position: absolute;
+    top:6px;
+    left: 15px;
+    border-top: 5px solid transparent;
+    border-right: 5px solid #000;
+    border-bottom: 5px solid transparent;
+}
 .previous:before{
     content: '';
     position: absolute;
@@ -111,6 +134,28 @@ aside{
     justify-self: center;
     position: relative;
 }
+.cont-next{
+    grid-area: contnext;
+    background: #f0932b;
+    border-radius: 4px;
+    height: 22px;
+    padding:0 1.5em 0 1em;
+    text-transform: capitalize;
+    justify-self: center;
+    align-self: end;
+    position: relative; 
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+.cont-next::after{
+    content: '';
+    position: absolute;
+    top:6px;
+    right: 15px;
+    border-top: 5px solid transparent;
+    border-left: 5px solid #000;
+    border-bottom: 5px solid transparent;
+}
 .next::after{
     content: '';
     position: absolute;
@@ -123,6 +168,7 @@ aside{
 .content{
     padding-top: 60px;
     grid-area: content;
+    margin-bottom: 60px;
 }
 footer{
     display: grid;
@@ -210,5 +256,11 @@ aside{
         padding-top: 10px;
         align-self: center;
         justify-self: center;
+    }
+    .cont-next{
+        display: none;
+    }
+    .cont-previous{
+        display: none;
     }
 } 
